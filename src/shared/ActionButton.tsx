@@ -10,10 +10,11 @@ type Props = {
 const ActionButton = ({children, setSelectedPage}: Props) => {
   return (
     <AnchorLink
-    className="rounded-md bg-secondary-500 px-10 py-2 hover:background-primary-500  hover:text-white"
+    className="group relative overflow-hidden rounded-full bg-gradient-to-r from-secondary-500 to-primary-500 px-8 py-3 font-semibold text-white shadow-lg transform transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-2xl hover:from-primary-500 hover:to-secondary-400"
     onClick={() => setSelectedPage(SelectedPage.ContactUs)}
     href= {`#${SelectedPage.ContactUs}`}>
-        {children}
+        <span className="relative z-10">{children}</span>
+        <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
     </AnchorLink>
   )
 }
